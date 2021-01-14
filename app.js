@@ -1,6 +1,6 @@
 var temp = {
-    key: "943422edf7ee41eb9b0ba3854e628f08	",
-    base: "https://api.weatherbit.io/v2.0/current/airquality?"
+    key: "87cde31000e5170290cebdd94820d23d",
+    base: "http://api.openweathermap.org/data/2.5/air_pollution?"
   }
 var notificationElement = document.querySelector(".notification");
 if (navigator.geolocation) {
@@ -19,14 +19,14 @@ function setPosition(position){
 getAQI(latitude, longitude);
   }
 function getAQI(lat,lon) {
-      fetch(`${temp.base}lat=${lat}&lon=${lon}&units=metric&key=${temp.key}`)
+      fetch(`${temp.base}lat=${lat}&lon=${lon}&appid=${temp.key}`)
         .then(aqi => {
           return aqi.json();
         }).then(displayResults);
 }
 function displayResults(aq){
     let aqi=document.querySelector(".aqi");
-    aqi.innerHTML=`${aq.data[0].aqi}`;
+    aqi.innerHTML=`${aq.list[0].main.aqi}`;
     let location=document.querySelector(".location");
-    location.innerHTML=`${aq.city_name},${aq.country_code}`
+  
 }
