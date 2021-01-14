@@ -1,6 +1,6 @@
 var temp = {
     key: "87cde31000e5170290cebdd94820d23d",
-    base: "http://api.openweathermap.org/data/2.5/air_pollution?"
+    base: "https://api.openweathermap.org/data/2.5/air_pollution?"
   }
 var notificationElement = document.querySelector(".notification");
 if (navigator.geolocation) {
