@@ -6,7 +6,8 @@ body{
     background-image: url(air.jpg);
     background-size: cover;
     color: white;
-    background-position: center;
+    background-repeat: no-repeat;
+    background-position: top;
 }
 .notification{
    
@@ -15,17 +16,21 @@ body{
 .app>div{
     margin: 10px;
    font-weight: 500;
-    font-size: 20px;
+    font-size: 30px;
 }
 
 h1{
     border-bottom: 1px white solid;
 }
 span{
+    font-size: 1.3em;
     font-weight: 700;
+    text-shadow: 2px 4px rgba(46, 46, 46, 0.6);
 }
 .app{
 border: 1px white solid;
 border-radius: 7px;
+filter:drop-shadow(2px 4px 8px #585858);
 backdrop-filter: blur(35px);
-}
+}.app:hover{
+transition: 0.2s ease-out;  }
