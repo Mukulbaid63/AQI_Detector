@@ -1,5 +1,11 @@
-//apikey and url defining
+
 // **1
+/*An application programming interface ('API') is a computing interface that defines interactions between multiple software intermediaries.
+It defines the kinds of calls or requests that can be made, how to make them, the data formats that should be used, the conventions to follow, etc. 
+It can also provide extension mechanisms so that users can extend existing functionality in various ways and to varying degrees.[1] An API can be entirely custom,
+    specific to a component, or designed based on an industry-standard to ensure interoperability. Through information hiding, APIs enable modular programming, allowing users to use the interface independently of the implementation.
+    The API key is a unique identifier that authenticates requests associated with your project for usage and billing purposes. We must have at least one API key associated with your project.
+    We are using the Air Pollution API which is developed by OpenWeatherMap.org.It is defined below.*/
 var temp = {
     key: "87cde31000e5170290cebdd94820d23d",
     base: "https://api.openweathermap.org/data/2.5/air_pollution?"
@@ -11,7 +17,7 @@ var notificationElement = document.querySelector(".notification");
 
 
 // **2
-//Accessing the location from the browser using geo location
+//Generally browsers have the internal feature to do multiple operations using its internal APIs.Here we use Geolocation API to access the geographical coordinates and then pass the control to the setPosition function where the position object containing the latitude and longitude is the function parameter .
 if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(setPosition);
     notificationElement.innerHTML = "";
@@ -25,7 +31,7 @@ else {
 
 
 // **3
-//passes the coordinates to the APi and does a function call
+//Once we get the Cooordinates then we send the coordinates to the getAQI function for fetching the results from the API call.
 function setPosition(position){
     let latitude = position.coords.latitude;//storing latitude
     let longitude = position.coords.longitude;//storing longitude
@@ -37,6 +43,7 @@ getAQI(latitude, longitude);
 
 
 // **4
+//Fetch command is used for the the API call and after the call we get a set of values in JSON format and pass the JSON object to the displayResults function for displaying the results on the screen.
 function getAQI(lat,lon) {
       fetch(`${temp.base}lat=${lat}&lon=${lon}&appid=${temp.key}`)//fetching data from api
         .then(aqi => {
@@ -47,6 +54,7 @@ function getAQI(lat,lon) {
 
 
 // **5
+//Initially we define the variables required for the elements and then we select the values from the JSON object passed to this function and then put the values in their respective HTML elements.
 function displayResults(aq){
     let aqi=document.querySelector(".aqi");//selecting the aqi element from HTML
     aqi.innerHTML=`${aq.list[0].main.aqi}`;//passing the json value in it
