@@ -35,7 +35,8 @@ else {
 function setPosition(position){
     let latitude = position.coords.latitude;//storing latitude
     let longitude = position.coords.longitude;//storing longitude
-      
+      console.log(latitude)
+       console.log(longitude)
 getAQI(latitude, longitude);
   }
 // **3
