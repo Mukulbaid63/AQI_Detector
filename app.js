@@ -73,15 +73,17 @@ function displayResults(aq){
 
     let so2=document.querySelector(".so2-util");//selecting the aqi element from HTML
     so2.innerHTML=`${aq.list[0].components.so2}`//passing the json value in it
-
+    
+    let pm10=document.querySelector(".pm10-util");//selecting the aqi element from HTML
+    pm10.innerHTML=`${aq.list[0].components.pm10}`//passing the json value in it
+    
     let pm2=document.querySelector(".pm2_5-util");//selecting the aqi element from HTML
     pm2.innerHTML=`${aq.list[0].components.pm2_5}`//passing the json value in it
 
     let nh3=document.querySelector(".nh3-util");//selecting the aqi element from HTML
     nh3.innerHTML=`${aq.list[0].components.nh3}`//passing the json value in it
 
-    let pm10=document.querySelector(".pm10-util");//selecting the aqi element from HTML
-    pm10.innerHTML=`${aq.list[0].components.pm10}`//passing the json value in it
+    
 
 }
 // **5
